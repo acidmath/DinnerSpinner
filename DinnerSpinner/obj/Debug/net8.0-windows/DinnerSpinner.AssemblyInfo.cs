@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DinnerSpinner")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb5de930616edd42460cba60bcc76e03850a05a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("DinnerSpinner")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DinnerSpinner")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,4 @@
 ﻿using DinnerSpinner.Data.Model;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
@@ -22,10 +21,13 @@ namespace DinnerSpinner.Data {
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Human>().ToTable(typeof(Human).Name);
+            modelBuilder.Entity<Restaurant>().ToTable(typeof(Restaurant).Name);
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Human> Humans { get; set; }
+
+        public DbSet<Restaurant> Restaurants { get; set; }
 
     }
 

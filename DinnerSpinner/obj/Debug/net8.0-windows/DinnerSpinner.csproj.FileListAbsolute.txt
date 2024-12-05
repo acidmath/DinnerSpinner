@@ -146,3 +146,4 @@ C:\git\DinnerSpinner\DinnerSpinner\bin\Debug\net8.0-windows\tr\Microsoft.CodeAna
 C:\git\DinnerSpinner\DinnerSpinner\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\git\DinnerSpinner\DinnerSpinner\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\git\DinnerSpinner\DinnerSpinner\bin\Debug\net8.0-windows\dinnerSpinner.db
+C:\git\DinnerSpinner\DinnerSpinner\obj\Debug\net8.0-windows\DinnerSpinner.sourcelink.json

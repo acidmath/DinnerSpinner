@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DinnerSpinner.Data.Model {
 
-    public class Human {
+    public class Restaurant {
         
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,7 +13,7 @@ namespace DinnerSpinner.Data.Model {
         [StringLength(100)]
         public string Name { get; set; }
 
-        public Human(int id, string name) {
+        public Restaurant(int id, string name) {
             Id = id;
             Name = name;
         }

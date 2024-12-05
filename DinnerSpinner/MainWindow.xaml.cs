@@ -16,6 +16,7 @@ namespace DinnerSpinner {
             optionsBuilder.UseSqlite("Data Source=dinnerSpinner.db");
             DinnerSpinnerContext context = new(optionsBuilder.Options);
             Console.WriteLine($"how many humans: {context.Humans.Count()}");
+            Console.WriteLine($"how many restaurants: {context.Restaurants.Count()}");
         }
     }
 }
