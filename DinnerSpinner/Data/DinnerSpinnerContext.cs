@@ -11,12 +11,7 @@ namespace DinnerSpinner.Data {
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.ConfigureWarnings(MyWarnings);
             base.OnConfiguring(optionsBuilder);
-        }
-
-        private void MyWarnings(WarningsConfigurationBuilder builder) {
-            builder.Log(RelationalEventId.PendingModelChangesWarning);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {

@@ -4,9 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DinnerSpinner"
+        xmlns:vm="clr-namespace:DinnerSpinner.UI.ViewModel" xmlns:element="clr-namespace:DinnerSpinner.UI.Element"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=vm:MainViewModel, IsDesignTimeCreatable=False}"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
     <!-- my greatest dream: to implement a defined loading bar with real percentages -->
+        <StackPanel>
+            <TextBlock Text="{Binding HumanText}"/>
+            <TextBlock Text="{Binding RestaurantText}"/>
+            <element:AddHumanElement/>
+        </StackPanel>
     </Grid>
 </Window>
