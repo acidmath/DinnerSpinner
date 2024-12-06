@@ -6,8 +6,19 @@
         xmlns:local="clr-namespace:DinnerSpinner"
         xmlns:vm="clr-namespace:DinnerSpinner.UI.ViewModel" xmlns:element="clr-namespace:DinnerSpinner.UI.Element"
         mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         d:DataContext="{d:DesignInstance Type=vm:MainViewModel, IsDesignTimeCreatable=False}"
         Title="MainWindow" Height="450" Width="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Window.Resources>
+        <DataTemplate x:Key="RestaurantItemView">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
     <!-- my greatest dream: to implement a defined loading bar with real percentages -->
         <StackPanel>
@@ -15,6 +26,7 @@
             <TextBlock Text="{Binding RestaurantText}"/>
             <element:AddHumanElement/>
             <element:AddRestaurantElement Text="{Binding RestaurantName, Mode=TwoWay}" Command="{Binding AddRestaurantCommand}"/>
+            <ListView ItemsSource="{Binding Restaurants}" ItemTemplate="{StaticResource RestaurantItemView}"/>
         </StackPanel>
     </Grid>
 </Window>

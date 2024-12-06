@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using DinnerSpinner.Data;
 using DinnerSpinner.Data.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace DinnerSpinner.UI.ViewModel {
     public partial class MainViewModel : ObservableObject {
@@ -19,10 +20,20 @@ namespace DinnerSpinner.UI.ViewModel {
         [ObservableProperty]
         private string _restaurantName;
 
+        [ObservableProperty]
+        private List<Restaurant> _restaurants;
+
         public MainViewModel(DinnerSpinnerContext context) {
             _context = context;
-            _humanCount = context.Humans.Count();
-            _restaurantCount = context.Restaurants.Count();
+            
+        }
+
+        [RelayCommand]
+        private async Task LoadAsync() {
+            _humanCount = _context.Humans.Count();
+            
+            Restaurants = await _context.Restaurants.ToListAsync();
+            RestaurantCount = Restaurants.Count;
         }
 
         [RelayCommand]
