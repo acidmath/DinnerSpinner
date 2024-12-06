@@ -14,6 +14,7 @@
             <TextBlock Text="{Binding HumanText}"/>
             <TextBlock Text="{Binding RestaurantText}"/>
             <element:AddHumanElement/>
+            <element:AddRestaurantElement Text="{Binding RestaurantName, Mode=TwoWay}" Command="{Binding AddRestaurantCommand}"/>
         </StackPanel>
     </Grid>
 </Window>

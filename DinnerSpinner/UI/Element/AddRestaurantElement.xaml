@@ -6,10 +6,10 @@
              xmlns:local="clr-namespace:DinnerSpinner.UI.Element"
              xmlns:vm="clr-namespace:DinnerSpinner.UI.ViewModel"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Type=vm:AddRestaurantViewModel, IsDesignTimeCreatable=False}"
+             
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal">
-        <TextBox Text="{Binding Name}"/>
-        <Button Content="{StaticResource ResourceKey=PlusIcon}"/>
+    <StackPanel Orientation="Horizontal" DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+        <TextBox Text="{Binding Text}"/>
+        <Button Content="{StaticResource ResourceKey=PlusIcon}" Command="{Binding Command}"/>
     </StackPanel>
 </UserControl>

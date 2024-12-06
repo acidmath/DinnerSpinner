@@ -1,21 +1,39 @@
-﻿using DinnerSpinner.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using DinnerSpinner.Data;
+using DinnerSpinner.Data.Model;
 
 namespace DinnerSpinner.UI.ViewModel {
-    public class MainViewModel {
+    public partial class MainViewModel : ObservableObject {
+
+        private readonly DinnerSpinnerContext _context;
 
         private int _humanCount;
         public string HumanText => $"Humans: {_humanCount}";
 
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(RestaurantText))]
         private int _restaurantCount;
-        public string RestaurantText => $"Restaurants: {_restaurantCount}";
+        public string RestaurantText => $"Restaurants: {RestaurantCount}";
 
-        public MainViewModel() {
-            DbContextOptionsBuilder<DinnerSpinnerContext> optionsBuilder = new();
-            optionsBuilder.UseSqlite("Data Source=dinnerSpinner.db");
-            DinnerSpinnerContext context = new(optionsBuilder.Options);
+        [ObservableProperty]
+        private string _restaurantName;
+
+        public MainViewModel(DinnerSpinnerContext context) {
+            _context = context;
             _humanCount = context.Humans.Count();
             _restaurantCount = context.Restaurants.Count();
+        }
+
+        [RelayCommand]
+        private async Task AddRestaurantAsync() {
+
+            Restaurant restaurant = new() {
+                Name = RestaurantName
+            };
+
+            _context.Restaurants.Add(restaurant);
+            await _context.SaveChangesAsync();
         }
     }
 }

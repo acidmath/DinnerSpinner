@@ -16,8 +16,6 @@ namespace DinnerSpinner {
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<MainWindow>();
 
-            services.AddTransient<AddHumanViewModel>();
-            services.AddTransient<AddRestaurantViewModel>();
             services.AddTransient<AddHumanElement>();
             services.AddTransient<AddRestaurantElement>();
             _serviceProvider = services.BuildServiceProvider();
@@ -26,7 +24,6 @@ namespace DinnerSpinner {
         protected override void OnStartup(StartupEventArgs e) {
             MainWindow mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
-
             base.OnStartup(e);
         }
     }

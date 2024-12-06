@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DinnerSpinner.Data.Model {
 
     public class Restaurant {
-        
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -18,5 +18,6 @@ namespace DinnerSpinner.Data.Model {
             Name = name;
         }
 
+        public Restaurant() { }
     }
 }
