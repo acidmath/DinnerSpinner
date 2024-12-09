@@ -33,8 +33,7 @@
             <ListView ItemsSource="{Binding Restaurants}" ItemTemplate="{StaticResource RestaurantItemView}"/>
         </StackPanel>
         <Grid Grid.Column="1">
-            <element:SpinnerElement Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}}"
-                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}}"/>
+            <element:SpinnerElement />
         </Grid>
     </Grid>
 </Window>
