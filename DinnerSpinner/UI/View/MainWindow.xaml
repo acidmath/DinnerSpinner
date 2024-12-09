@@ -20,13 +20,21 @@
         </DataTemplate>
     </Window.Resources>
     <Grid>
-    <!-- my greatest dream: to implement a defined loading bar with real percentages -->
-        <StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
             <TextBlock Text="{Binding HumanText}"/>
             <TextBlock Text="{Binding RestaurantText}"/>
             <element:AddHumanElement/>
-            <element:AddRestaurantElement Text="{Binding RestaurantName, Mode=TwoWay}" Command="{Binding AddRestaurantCommand}"/>
+            <element:AddRestaurantElement Text="{Binding RestaurantName, Mode=TwoWay}" Command="{Binding AddRestaurantCommand}" HorizontalAlignment="Stretch"/>
             <ListView ItemsSource="{Binding Restaurants}" ItemTemplate="{StaticResource RestaurantItemView}"/>
         </StackPanel>
+        <Grid Grid.Column="1">
+            <element:SpinnerElement Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}}"
+                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}}"/>
+        </Grid>
     </Grid>
 </Window>

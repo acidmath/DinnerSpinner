@@ -8,8 +8,12 @@
              mc:Ignorable="d" 
              
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal" DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
-        <TextBox Text="{Binding Text}"/>
-        <Button Content="{StaticResource ResourceKey=PlusIcon}" Command="{Binding Command}"/>
-    </StackPanel>
+    <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Column="0" Text="{Binding Text}"/>
+        <Button Grid.Column="1" Content="{StaticResource ResourceKey=PlusIcon}" Command="{Binding Command}"/>
+    </Grid>
 </UserControl>

@@ -18,6 +18,7 @@ namespace DinnerSpinner {
 
             services.AddTransient<AddHumanElement>();
             services.AddTransient<AddRestaurantElement>();
+            services.AddTransient<SpinnerElement>();
             _serviceProvider = services.BuildServiceProvider();
         }
 

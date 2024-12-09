@@ -24,8 +24,7 @@ namespace DinnerSpinner.UI.ViewModel {
         private List<Restaurant> _restaurants;
 
         public MainViewModel(DinnerSpinnerContext context) {
-            _context = context;
-            
+            _context = context;            
         }
 
         [RelayCommand]
@@ -45,6 +44,8 @@ namespace DinnerSpinner.UI.ViewModel {
 
             _context.Restaurants.Add(restaurant);
             await _context.SaveChangesAsync();
+            await LoadAsync();
+            RestaurantName = string.Empty;
         }
     }
 }
