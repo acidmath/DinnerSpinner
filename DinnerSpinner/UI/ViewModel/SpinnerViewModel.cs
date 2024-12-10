@@ -1,14 +1,23 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Media;
 
 namespace DinnerSpinner.UI.ViewModel {
-    public class SpinnerViewModel : DependencyObject {
+    public class SpinnerViewModel {
 
+        public ObservableCollection<Triangle> Triangles { get; set; } = new();
 
+        public SpinnerViewModel() {
 
-        public SpinnerViewModel(double canvasHeight, double canvasWidth) {
+            Point point1 = new Point(100, 100);
+            Point point2 = new Point(100, 0);
+            Point point3 = new Point(0, 0);
+            PointCollection points = new PointCollection();
+            points.Add(point1);
+            points.Add(point2);
+            points.Add(point3);
 
-           // var balls = (CanvasHeight, CanvasWidth);
-            ;
+            Triangles.Add(new Triangle(points));
         }
 
     }
